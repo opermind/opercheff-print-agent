@@ -1,12 +1,14 @@
 {
   "name": "opercheff-print-agent",
   "version": "0.1.0",
-  "description": "Agente de impressão Windows para OperChef360",
+  "description": "OperChef Print Agent — serviço Windows leve para impressão térmica local (substitui QZ Tray)",
   "main": "src/index.js",
   "bin": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "build": "pkg . --targets node20-win-x64 --output dist/OperChefPrintAgent.exe"
+    "dev": "node src/index.js",
+    "build": "pkg . --targets node20-win-x64 --output dist/OperChefPrintAgent.exe",
+    "installer": "makensis installer.nsi"
   },
   "pkg": {
     "assets": ["assets/**/*"],
@@ -14,14 +16,16 @@
     "outputPath": "dist"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "node-thermal-printer": "^4.4.5",
+    "better-sqlite3": "^11.3.0",
     "escpos": "^3.0.0-alpha.6",
     "escpos-usb": "^3.0.0-alpha.4",
-    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2",
+    "node-thermal-printer": "^4.4.5",
     "node-windows": "^1.0.0-beta.8"
   },
   "devDependencies": {
-    "pkg": "^5.8.1"
-  }
+    "pkg": "5.8.1"
+  },
+  "author": "OperChef",
+  "license": "MIT"
 }
